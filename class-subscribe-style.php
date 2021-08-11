@@ -1,8 +1,6 @@
 <?php
 namespace Subscribe;
-/**
- * 
- */
+
 class Subscribe_Styles
 {
 	

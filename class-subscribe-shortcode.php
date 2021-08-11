@@ -1,8 +1,6 @@
 <?php
 namespace Subscribe;
-/**
- * 
- */
+
 class Subscribe_Shortcode
 {
 	
@@ -16,15 +14,9 @@ class Subscribe_Shortcode
 		wp_enqueue_style( 'subscribe' );
 		wp_enqueue_script( 'subscribe' );
 		ob_start();
-		?>
-		<form action="" method="POST" class="subscribe-form">
-			<div class="subscribe-form-row">
-				<input type="email" name="email" class="subscribe-form-field" required>
-				<button type="submit" class="subscribe-form-button"><?php echo esc_html( 'Subscribe', 'subscribe' ); ?></button>
-			</div>
-			<div class="subscribe-form-message" style="display: none"></div>
-		</form>
-		<?php
+
+		require ( SUBSCRIBE_PATH .  'subscribe-form.php') ;		
+
 		return ob_get_clean();
 	}
 

@@ -1,10 +1,23 @@
 <?php
 namespace Subscribe;
-/**
- * 
- */
+
 class Subscribe_Db
 {		
+	private function save_subscriber( $email ) {
+
+		global $wpdb;
+
+		return $wpdb->replace(
+			$this->get_table_name(),
+			[
+				'email' => sanitize_email( $email ),
+			],
+			[
+				'email' => '%s',
+			]
+		);
+	}
+
 
 	private function get_table_name() {
 
