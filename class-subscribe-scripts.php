@@ -1,8 +1,8 @@
 <?php 
 namespace Subscribe;
 
-class Subscribe_Scripts 
-{
+ class Subscribe_Scripts 
+ {
  	const SUBSCRIBE_NONCE_ACTION = 'subscribe-action';
  	function __construct()
  	{
@@ -19,5 +19,13 @@ class Subscribe_Scripts
 			true
 		);
 		
+		wp_localize_script(
+			'subscribe',
+			'subscribe',
+			[
+				'adminUrl' => admin_url( 'admin-ajax.php' ),				
+			]
+		);
+	
 	}
-}
+ }

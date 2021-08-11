@@ -14,7 +14,6 @@ class Subscribe {
 
 
 		$scripts= new Subscribe_Scripts;
-		
 		$scripts->register_scripts();
 
 		
