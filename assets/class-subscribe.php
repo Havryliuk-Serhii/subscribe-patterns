@@ -5,9 +5,20 @@ class Subscribe {
 
 	const SUBSCRIBE_NONCE_ACTION = 'subscribe-action';
 
-	public function plugin_hooks(){
-		$plugin_hooks=new Subscribe_Hooks;
-		$plugin_hooks->hooks();
+	public function hooks() {
+		$shortcode = new Subscribe_Shortcode;
+		$shortcode->form();
+
+		$styles = new Subscribe_Styles;
+		$styles->register_styles();
+
+
+		$scripts= new Subscribe_Scripts;
+		$scripts->register_scripts();
+
+		
+		add_action( 'wp_ajax_subscribe', [ $this, 'subscribe' ] );
+		add_action( 'wp_ajax_nopriv_subscribe', [ $this, 'subscribe' ] );
 	}
 
 	

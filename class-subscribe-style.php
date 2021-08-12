@@ -3,9 +3,12 @@ namespace Subscribe;
 
 class Subscribe_Styles
 {
-	
-	function __construct()
-	{
+	public function __construct(){
+
+		$this->init_style();
+	}
+
+	public function init_style(){
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ] );
 	}
 

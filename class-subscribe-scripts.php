@@ -3,10 +3,17 @@ namespace Subscribe;
 
  class Subscribe_Scripts 
  {
- 	const SUBSCRIBE_NONCE_ACTION = 'subscribe-action';
- 	function __construct()
- 	{
+ 	
+ 	public function __construct(){
+ 		
+ 		$this->init_scripts();
+ 		
+ 	}
+
+ 	public function init_scripts(){
+ 		
  		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
+ 		
  	}
 
  	public function register_scripts() {
@@ -23,7 +30,8 @@ namespace Subscribe;
 			'subscribe',
 			'subscribe',
 			[
-				'adminUrl' => admin_url( 'admin-ajax.php' ),				
+				'adminUrl' => admin_url( 'admin-ajax.php' ),	
+				/*'nonce'    => wp_create_nonce( parent::SUBSCRIBE_NONCE_ACTION ),	*/		
 			]
 		);
 	
