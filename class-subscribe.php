@@ -4,12 +4,6 @@ namespace Subscribe;
 class Subscribe {
 
 	const SUBSCRIBE_NONCE_ACTION = 'subscribe-action';
-
-	public function plugin_hooks(){
-		$plugin_hooks=new Subscribe_Hooks;
-		$plugin_hooks->hooks();
-	}
-
 	
 	public function subscribe() {
 
@@ -37,11 +31,4 @@ class Subscribe {
 
 		wp_send_json_success( esc_html__( 'You were successfully subscribed', 'subscribe' ) );
 	}
-
-
-	public function subscribe_db(){
-		$db =new Subscribe_Db;
-		$db->create_table();
-	}
-	
 }
