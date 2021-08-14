@@ -1,13 +1,9 @@
 <?php
 namespace Subscribe;
 
-class Subscribe_Shortcode
+class Shortcode
 {
 	
-	public function __construct(){
-		$this->plugin_shortcode();
-	}
-
 	public function plugin_shortcode(){
 		add_shortcode( 'subscribe_form', [ $this, 'form' ] );
 	}

@@ -1,7 +1,7 @@
 <?php
 namespace Subscribe;
 
-class Subscribe_Db
+class Db
 {		
 	private function save_subscriber( $email ) {
 

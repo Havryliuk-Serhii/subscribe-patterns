@@ -4,10 +4,20 @@ namespace Subscribe;
 class Subscribe {
 
 	const SUBSCRIBE_NONCE_ACTION = 'subscribe-action';
+
+	public function add_hooks(){
+
+		$add_hooks = new Hooks();
+		$add_hooks->plugin_hooks();
+
+        $add_ajax = new Ajax();
+		$add_ajax->plugin_ajax();
 	
+	}
+
 	public function subscribe() {
 
-		check_ajax_referer( self::SUBSCRIBE_NONCE_ACTION );
+	check_ajax_referer( self::SUBSCRIBE_NONCE_ACTION );
 
 		$email = filter_input( INPUT_POST, 'email', FILTER_SANITIZE_EMAIL );
 
@@ -30,5 +40,5 @@ class Subscribe {
 		}
 
 		wp_send_json_success( esc_html__( 'You were successfully subscribed', 'subscribe' ) );
-	}
+	}	
 }
