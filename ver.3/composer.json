@@ -1,0 +1,27 @@
+{
+    "name": "wppunk/subscribe",
+	"description": "The plugin creates a subscription form and store subscribers into database.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maxym Denysenko",
+            "email": "mdenisenko95@gmail.com"
+        }
+    ],
+    "require": {
+        "rdlowrey/auryn": "^1.4"
+    },
+	"autoload": {
+		"psr-4": {
+			"WPPunk\\Subscribe\\": "src"
+		}
+	},
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^2.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "phpcompatibility/php-compatibility": "^9.3"
+    },
+	"scripts": {
+		"cs": "phpcs --standard=.phpcs.xml ."
+	}
+}
