@@ -6,6 +6,8 @@ class Subscribe {
 	const SUBSCRIBE_NONCE_ACTION = 'subscribe-action';
 
 	public function add_hooks(){
+		
+		(new Shortcode())->plugin_shortcode();
 
 		$add_hooks = new Hooks();
 		$add_hooks->plugin_hooks();

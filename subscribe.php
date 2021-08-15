@@ -32,10 +32,6 @@ require plugin_dir_path( __FILE__ ) . 'class-ajax.php';
 require plugin_dir_path( __FILE__ ) . 'class-subscribe.php';
 require plugin_dir_path( __FILE__ ) . 'class-db.php';
 
-(new Shortcode())->plugin_shortcode();
-
-register_activation_hook( __FILE__, [ $subscribe, 'add_hooks' ] );
-
-register_activation_hook( __FILE__, [ $subscribe, 'subscribe' ] );
+(new Subscribe())->add_hooks();
 
 register_activation_hook( __FILE__, [ $subscribe, 'create_table' ] );
