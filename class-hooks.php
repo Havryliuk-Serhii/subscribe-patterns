@@ -3,7 +3,7 @@ namespace Subscribe;
 
 class Hooks
 {
-	public function plugin_hooks() {		
+	public function add_hooks() {		
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );		

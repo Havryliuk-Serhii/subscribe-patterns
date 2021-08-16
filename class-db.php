@@ -3,7 +3,7 @@ namespace Subscribe;
 
 class Db
 {		
-	private function save_subscriber( $email ) {
+	public function save_subscriber( $email ) {
 
 		global $wpdb;
 

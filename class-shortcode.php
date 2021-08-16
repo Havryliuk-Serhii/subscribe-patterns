@@ -4,7 +4,7 @@ namespace Subscribe;
 class Shortcode
 {
 	
-	public function plugin_shortcode(){
+	public function add_hooks(){
 		add_shortcode( 'subscribe_form', [ $this, 'form' ] );
 	}
 
