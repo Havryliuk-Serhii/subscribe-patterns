@@ -1,0 +1,22 @@
+{
+    "name": "serhiih/subscribe-patterns",
+    "description": "Subscribe plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Serhii Havryliuk",
+            "email": "havserhii@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Subscribe\\": "src/"
+        }
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^2.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "phpcompatibility/php-compatibility": "^9.3"
+    }
+}

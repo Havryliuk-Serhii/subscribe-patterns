@@ -1,14 +1,22 @@
-<?php 
+<?php
 namespace Subscribe;
 
-class Hooks
-{
-	public function add_hooks() {		
+/**
+ *  Class Hooks
+ */
+class Hooks {
+	/**
+	 * Enqueue scripts and styles
+	 */
+	public function add_hooks() {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );		
+		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
 	}
 
+	/**
+	 *  Register styles
+	 */
 	public function register_styles() {
 
 		wp_register_style(
@@ -19,6 +27,9 @@ class Hooks
 		);
 	}
 
+	/**
+	 *  Register scripts
+	 */
 	public function register_scripts() {
 
 		wp_register_script(
@@ -36,6 +47,6 @@ class Hooks
 				'nonce'    => wp_create_nonce( Subscribe::SUBSCRIBE_NONCE_ACTION ),
 			]
 		);
-	}		
+	}
 
 }

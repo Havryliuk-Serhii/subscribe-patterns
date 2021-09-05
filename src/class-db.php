@@ -1,9 +1,18 @@
 <?php
 namespace Subscribe;
 
-class Db
-{		
-	public function save_subscriber( $email ) {
+/**
+ *  Class Db
+ */
+class Db {
+	/**
+	 * Save new subscriber
+	 *
+	 * @param  string $email Email adress
+	 *
+	 * @return mixed
+	 */
+	public function save_subscriber( string $email ): mixed {
 
 		global $wpdb;
 
@@ -19,13 +28,21 @@ class Db
 	}
 
 
-	private function get_table_name() {
+	/**
+	 * Add new table name
+	 *
+	 * @return string
+	 */
+	private function get_table_name(): string {
 
 		global $wpdb;
 
 		return $wpdb->prefix . 'subscribers';
 	}
 
+	/**
+	 * Create table
+	 */
 	public function create_table() {
 
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';

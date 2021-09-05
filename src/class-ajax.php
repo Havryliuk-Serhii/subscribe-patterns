@@ -1,30 +1,35 @@
-<?php 
+<?php
 namespace Subscribe;
 
-class Subscribe {
+/**
+ * Class Ajax
+ */
+class Ajax {
 
-	const SUBSCRIBE_NONCE_ACTION = 'subscribe-action';
+	/**
+	 * Initialize database
+	 *
+	 * @param Db $db
+	 */
+	public function __construct( Db $db ) {
+		$this->db = $db;
+	}
 
-	public function hooks() {
-		$shortcode = new Subscribe_Shortcode;
-		$shortcode->form();
+	/**
+	 * Add ajax hook
+	 */
+	public function add_hooks() {
 
-		$styles = new Subscribe_Styles;
-		$styles->register_styles();
-
-
-		$scripts= new Subscribe_Scripts;
-		$scripts->register_scripts();
-
-		
 		add_action( 'wp_ajax_subscribe', [ $this, 'subscribe' ] );
 		add_action( 'wp_ajax_nopriv_subscribe', [ $this, 'subscribe' ] );
 	}
 
-	
+	/**
+	 * Add function subscribe
+	 */
 	public function subscribe() {
 
-		check_ajax_referer( self::SUBSCRIBE_NONCE_ACTION );
+		check_ajax_referer( Subscribe::SUBSCRIBE_NONCE_ACTION );
 
 		$email = filter_input( INPUT_POST, 'email', FILTER_SANITIZE_EMAIL );
 
@@ -37,7 +42,7 @@ class Subscribe {
 			);
 		}
 
-		if ( 2 === $this->save_subscriber( $email ) ) {
+		if ( 2 === $this->db->save_subscriber( $email ) ) {
 			wp_send_json_error(
 				sprintf(
 					esc_html__( 'The %s email is already exists', 'subscribe' ),
@@ -48,11 +53,8 @@ class Subscribe {
 
 		wp_send_json_success( esc_html__( 'You were successfully subscribed', 'subscribe' ) );
 	}
-
-
-	public function subscribe_db(){
-		$db =new Subscribe_Db;
-		$db->create_table();
-	}
-	
 }
+
+
+
+
