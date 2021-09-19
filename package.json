@@ -1,0 +1,38 @@
+{
+  "name": "subscribe-patterns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cs": "run-s -c cs:*",
+    "cs:js": "eslint assets/src/js",
+    "cs:scss": "stylelint \"assets/src/**/*.scss\"",
+    "cs:php": "composer cs",
+    "build": "cross-env NODE_ENV=development npx mix ",
+    "build:production": "cross-env NODE_ENV=production npx mix --production ",
+    "start": "cross-env NODE_ENV=development npx mix -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Havryliuk-Serhii/subscribe-patterns.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Havryliuk-Serhii/subscribe-patterns/issues"
+  },
+  "homepage": "https://github.com/Havryliuk-Serhii/subscribe-patterns#readme",
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^9.1.2",
+    "browser-sync": "^2.27.5",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "cross-env": "^7.0.3",
+    "laravel-mix": "^6.0.31",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.41.0",
+    "sass-loader": "^12.1.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
+  }
+}

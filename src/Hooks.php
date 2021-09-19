@@ -21,7 +21,7 @@ class Hooks {
 
 		wp_register_style(
 			'subscribe',
-			SUBSCRIBE_URL . '/assets/css/main.css',
+			SUBSCRIBE_URL . '/assets/dist/css/main.css',
 			[],
 			SUBSCRIBE_VERSION
 		);
@@ -34,7 +34,7 @@ class Hooks {
 
 		wp_register_script(
 			'subscribe',
-			SUBSCRIBE_URL . '/assets/js/main.js',
+			SUBSCRIBE_URL . '/assets/dist/js/main.js',
 			[],
 			SUBSCRIBE_VERSION,
 			true
@@ -44,7 +44,7 @@ class Hooks {
 			'subscribe',
 			[
 				'adminUrl' => admin_url( 'admin-ajax.php' ),
-				'nonce'    => wp_create_nonce( Subscribe::SUBSCRIBE_NONCE_ACTION ),
+				'nonce'    => wp_create_nonce( Main::SUBSCRIBE_NONCE_ACTION ),
 			]
 		);
 	}
