@@ -25,7 +25,7 @@ class Shortcode {
 
 		ob_start();
 
-		require SUBSCRIBE_PATH . 'subscribe-form.php';
+		require SUBSCRIBE_FILE . '/dist/templates/subscribe-form.php';
 
 		return ob_get_clean();
 	}
